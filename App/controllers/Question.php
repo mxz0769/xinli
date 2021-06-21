@@ -26,4 +26,8 @@ class Question extends CI_Controller{
 			$this->load->view('question/set');
 		}
 	}
+
+	public function qlist(){
+		$this->load->view('question/qlist');
+	}
 }

@@ -206,7 +206,12 @@ body{
 	font-weight: bold;
 }
 .list{
-	margin-top: 20px;
+	margin-top: 25px;
+}
+.list .list-item{
+	margin-top: 15px;
+	border-bottom: 1px solid #ececec;
+	padding-bottom: 20px;
 }
 .list-item .item-title{
 	font-size: 17px;
@@ -214,7 +219,8 @@ body{
 }
 .list-item .item-answer{
 	padding: 10px 15px;
-	background: #a5d9fc;
+	background: #e6f5ff;
+	margin-top: 5px;
 }
 .answer-user{
 	display: flex;
@@ -229,8 +235,88 @@ body{
 .answer-user .user-name{
 	margin-left: 10px;
 	font-weight: bold;
+	font-size: 15px;
 }
 .answer-content{
 	word-break: break-all;
+	font-size: 14px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+}
+.set-ques{
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #2196f3;
+	text-align: center;
+}
+.set-ques p{
+	font-size: 14px;
+	color: #fff;
+}
+.set-ques p:nth-child(1){
+	font-size: 17px;
+	font-weight: bold;
 }
 
+/*******************detail****************/
+.ques-section .date{
+	font-size: 10px;
+}
+.ques-section .question{
+	font-size: 14px;
+}
+.answer-section{
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 5px solid #eee;
+}
+.answer-section .answer-item{
+	border-bottom: 1px solid #eee;
+	padding-bottom: 20px;
+	margin-top: 20px;
+}
+.answer-section .answer-user{
+	/*margin-top: 20px;*/
+}
+.answer-section .user-header img{
+	width: 35px;
+	height: 35px;
+}
+.answer-section .user-name{
+	flex: 1;
+}
+.answer-section .answer-date{
+	font-size: 10px;
+	margin-top: 5px;
+}
+.answer-section .answer-content{
+	-webkit-line-clamp: 6;
+}
+.answer-bar{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	border-top: 1px solid #f4f4f4;
+	width: 100%;
+	justify-content: space-around;
+}
+.answer-bar .set-btn,.answer-bar .wa-btn{
+	padding: 5px 10px;
+	background: #408bfb;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+.set-btn a{
+	color: #fff;
+}

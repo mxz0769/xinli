@@ -18,5 +18,13 @@ $config = array(
 			'label' => 'description',
 			'rules' => 'htmlspecialchars|required'
 		)
+	),
+
+	'question/comment'=>array(
+		array(
+			'field' => 'comment',
+			'label' => 'comment',
+			'rules' => 'htmlspecialchars|required'
+		),
 	)
 );

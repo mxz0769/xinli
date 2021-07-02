@@ -13,10 +13,11 @@
 	<div class="container">
 		<div class="search-bar">
 			<div class="search">
-				<input type="text" placeholder="搜索标题/内容等关键字">
+				<span class="search-btn"></span>
+				<input type="text" placeholder="搜索标题/内容等关键字" class="search-key" value="<?php echo $search;?>">
 			</div>
 			<div class="header">
-				<img src="<?php echo base_url();?>assets/imgs/erha.jpg" alt="">
+				<img src="<?php echo base_url();?>assets/imgs/erha.jpg" >
 			</div>
 		</div>
 		<div class="banner swiper-container">
@@ -32,12 +33,10 @@
 				<li>等你答</li>
 			</ul>
 			<div class="scroll-tab">
-				<div><label for="cate_1"><input type="radio" name="cate" id="cate_1" value="1"><span>成长</span></label></div>
-				<div><label for="cate_2"><input type="radio" name="cate" id="cate_2" value="2"><span>职场</span></label></div>
-				<div><label for="cate_3"><input type="radio" name="cate" id="cate_3" value="3"><span>人际关系</span></label></div>
-				<div><label for="cate_4"><input type="radio" name="cate" id="cate_4" value="4"><span>心理知识</span></label></div>
-				<div><label for="cate_5"><input type="radio" name="cate" id="cate_5" value="5"><span>情绪</label></span></div>
-				<div><label for="cate_6"><input type="radio" name="cate" id="cate_6" value="6"><span>亲子家庭</label></span></div>
+				<?php foreach ($cate as $c):?>
+				<div><label for="cate_<?php echo $c['cid'];?>"><input type="radio" name="cate" id="cate_<?php echo $c['cid'];?>" value="<?php echo $c['cid'];?>"><span><?php echo $c['catename'];?></span></label></div>
+				<?php endforeach;?>
+
 			</div>
 		</div>
 		<div class="list">
@@ -55,26 +54,6 @@
 				</a>
 			</div>
 			<?php endforeach;?>
-<!--			<div class="list-item">-->
-<!--				<div class="item-title">test222222222222222哈哈哈哈哈哈哈哈333333333</div>-->
-<!--				<div class="item-answer">-->
-<!--					<div class="answer-user">-->
-<!--						<div class="user-header"><img src="--><?php //echo base_url();?><!--assets/imgs/erha.jpg" alt=""></div>-->
-<!--						<div class="user-name">水电费水电费是否</div>-->
-<!--					</div>-->
-<!--					<div class="answer-content">测试测试222222222水电费水电费221111111111111111111</div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--			<div class="list-item">-->
-<!--				<div class="item-title">test333333333沙发斯蒂芬</div>-->
-<!--				<div class="item-answer">-->
-<!--					<div class="answer-user">-->
-<!--						<div class="user-header"><img src="--><?php //echo base_url();?><!--assets/imgs/erha.jpg" alt=""></div>-->
-<!--						<div class="user-name">哈哈哈哈哈水电费地方1111</div>-->
-<!--					</div>-->
-<!--					<div class="answer-content">测试测试2222水电费水电费是否222222111111111水电费水电费水电费1111</div>-->
-<!--				</div>-->
-<!--			</div>-->
 		</div>
 		<div class="set-ques">
 			<a href="<?php echo site_url('question/set')?>">
@@ -98,6 +77,11 @@
 		// 	clickable:true
 		// }
 	});
+
+	$(".search-btn").on("click",function(){
+		var key = $(".search-key").val();
+		window.location.href = "<?php echo site_url('question/qlist/')?>"+key;
+	})
 
 	function change_cate(){
 		this.cate;

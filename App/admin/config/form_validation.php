@@ -14,5 +14,12 @@ $config = array(
 			'rules' => 'addslashes|required'
 		)
 	),
+	'cate/addsave'=>array(
+		array(
+			'field' => 'catename',
+			'label' => 'catename',
+			'rules' => 'required'
+		)
+	)
 
 );

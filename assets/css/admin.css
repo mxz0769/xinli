@@ -51,3 +51,13 @@ html,body{
 .pt{
 	padding-top: 15px;
 }
+.qlist .qcard{
+	font-size: 14px;
+}
+.qcard .card-btn{
+	display: flex;
+	justify-content: flex-end;
+}
+.qcard .card-btn a{
+	margin-left: 10px;
+}

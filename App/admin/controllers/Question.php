@@ -19,7 +19,46 @@ class Question extends CI_Controller{
 		$page = $this->getPage($pagesize,$total);
 		$data['page'] = $page;
 
-		$this->load->view('list',$data);
+		$this->load->view('question/list',$data);
+	}
+
+	public function edit($qid){
+//		echo $qid;
+		$question = $this->question->get_one_ques($qid);
+		$answer = $this->question->get_answer($qid);
+		$data['question'] = $question;
+		$data['answer'] = $answer;
+//		print_r($data);
+		$this->load->view('question/edit',$data);
+	}
+
+	public function editsave(){
+		if($this->input->post()){
+			$qid = $this->input->post('qid');
+			$answer = $this->input->post('answer');
+			if(is_numeric($qid)){
+				$data['content'] = $answer;
+				$data['answertime'] = time();
+				$update = $this->question->update_answer($data,array('question_id'=>$qid));
+				if($update){
+					redirect('question/list');
+				}
+			}
+		}
+	}
+
+	public function del(){
+		if($this->input->post()){
+			$qid = $this->input->post('qid');
+			if(is_numeric($qid)){
+				$update = $this->question->del_ques($qid);
+				if($update){
+					$res['code'] = 1;
+					$res['msg'] = "success";
+					echo json_encode($res);exit;
+				}
+			}
+		}
 	}
 
 	private function getPage($pagesize,$total){
